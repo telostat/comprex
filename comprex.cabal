@@ -9,8 +9,8 @@ cabal-version: 1.12
 name:           comprex
 version:        0.0.0.0
 description:    Please see the README on GitHub at <https://github.com/telostat/comprex#readme>
-homepage:       https://github.com/vst/comprex#readme
-bug-reports:    https://github.com/vst/comprex/issues
+homepage:       https://github.com/telostat/comprex#readme
+bug-reports:    https://github.com/telostat/comprex/issues
 author:         Vehbi Sinan Tunalioglu
 maintainer:     vst@vsthost.com
 copyright:      Copyright (c) 2021 Telostat Pte Ltd
@@ -23,7 +23,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/vst/comprex
+  location: https://github.com/telostat/comprex
 
 flag static
   description: Use static linking for the main executable

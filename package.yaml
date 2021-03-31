@@ -1,6 +1,6 @@
 name:               comprex
 version:            0.0.0.0
-github:             "vst/comprex"
+github:             "telostat/comprex"
 license:            MIT
 author:             "Vehbi Sinan Tunalioglu"
 maintainer:         "vst@vsthost.com"
