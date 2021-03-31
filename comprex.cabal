@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 66f8256d394afb12b209e45ebc4b418147ab46fe0844ebdbfcda8121f3efcd24
+-- hash: 321fef7312ab94928bd16fa38989d2b1c3010ec41e71e0a6b6bc704c0d5d7c06
 
 name:           comprex
-version:        0.0.0.0
+version:        0.0.0.1
 description:    Please see the README on GitHub at <https://github.com/telostat/comprex#readme>
 homepage:       https://github.com/telostat/comprex#readme
 bug-reports:    https://github.com/telostat/comprex/issues
