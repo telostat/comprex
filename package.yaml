@@ -1,0 +1,62 @@
+name:               comprex
+version:            0.0.0.0
+github:             "vst/comprex"
+license:            MIT
+author:             "Vehbi Sinan Tunalioglu"
+maintainer:         "vst@vsthost.com"
+copyright:          "Copyright (c) 2021 Telostat Pte Ltd"
+
+description:        Please see the README on GitHub at <https://github.com/telostat/comprex#readme>
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+flags:
+  static:
+    description:    Use static linking for the main executable
+    default:        false
+    manual:         true
+
+dependencies:
+- base >= 4.11 && < 5
+- base16-bytestring
+- bytestring
+- cryptohash-sha1
+- exceptions
+- path
+- path-io
+- zlib
+
+library:
+  source-dirs:      src
+  ghc-options:
+  - -Wall
+  default-extensions:
+  - OverloadedStrings
+
+executable:
+  main:             Main.hs
+  source-dirs:      app
+  ghc-options:
+  - -threaded
+  - -rtsopts
+  - -with-rtsopts=-N
+  dependencies:
+  - comprex
+  - optparse-applicative
+  when:
+  - condition:      "flag(static) && !(os(osx))"
+    ld-options:
+    - -static
+    - -pthread
+
+tests:
+  comprex-doctest:
+    main:           doctest.hs
+    source-dirs:    .
+    ghc-options:
+    - -threaded
+    dependencies:
+    - comprex
+    - doctest
