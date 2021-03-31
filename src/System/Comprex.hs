@@ -3,6 +3,7 @@
 module System.Comprex where
 
 import qualified Codec.Compression.GZip as GZ
+import           Control.Monad          ((>=>))
 import           Control.Monad.Catch    (MonadThrow)
 import           Control.Monad.IO.Class (MonadIO(liftIO))
 import qualified Crypto.Hash.SHA1       as SHA1
@@ -21,11 +22,11 @@ import           Text.Printf            (printf)
 programAnalyze :: (MonadThrow m, MonadIO m) => Directory -> m ()
 programAnalyze d = do
   filePairs <- catMaybes <$> (mapM getCompressedFilePair =<< listFilesUncompressed d)
-  hashes <- mapM computeHashes filePairs
   liftIO $ putStrLn "FileA,HashA,FileB,HashB,Match"
-  mapM_ printPair hashes
+  mapM_ computeAndPrintHashes filePairs
   where
     printPair ((u, hu), (c, hc)) = liftIO . putStrLn $ printf "%s,%s,%s,%s,%s" (show u) (show hu) (show c) (show hc) (show $ hu == hc)
+    computeAndPrintHashes = computeHashes >=> printPair
 
 
 -- | Cleanup program.
